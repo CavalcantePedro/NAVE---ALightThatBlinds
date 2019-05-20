@@ -14,15 +14,19 @@ public class PointingAndInteracting : MonoBehaviour
 
     private RaycastHit hit;
 
+    //Debug
+    Renderer renderer;
+
     void Start() 
     {
         StartCoroutine(HitCheck());
+        renderer = gameObject.GetComponent<Renderer>();
     }
 
     void Update()
     {       
        PointObjects();
-       print(pointingAtInteractible.objectName);
+     //  print(pointingAtInteractible.objectName);
     }
 
     void PointObjects()
@@ -50,7 +54,10 @@ public class PointingAndInteracting : MonoBehaviour
 
         else 
         {
-            possibleActionText.text = "";           
+            float lerp = Mathf.PingPong(Time.time, 0.1f) / 0.1f;
+            renderer.material.color =  Color.Lerp(Color.red , Color.blue , lerp);
+            possibleActionText.text = "";
+                       
         }
     }
 
@@ -61,7 +68,8 @@ public class PointingAndInteracting : MonoBehaviour
     }
 
    void ShowActionDescription()
-    {           
+    {   
+        renderer.material.color = Color.black;        
         possibleActionText.text = pointingAtInteractible.actionDescription;
     }
 
