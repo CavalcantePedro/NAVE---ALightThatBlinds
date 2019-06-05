@@ -1,19 +1,14 @@
 fileFormatVersion: 2
-guid: 6536a13f1d9240e42a97bbc04b4593dd
+guid: f810429f1e8dcbe4dae809e3532c5539
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: ARVORE GRANDE.006
-    100002: //RootNode
-    100004: Camera
-    400000: ARVORE GRANDE.006
-    400002: //RootNode
-    400004: Camera
-    2000000: Camera
+    100000: //RootNode
+    400000: //RootNode
     2100000: Material
-    2300000: ARVORE GRANDE.006
-    3300000: ARVORE GRANDE.006
-    4300000: ARVORE GRANDE.006
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Icosphere.006
   externalObjects: {}
   materials:
     importMaterials: 1
