@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PointingAndInteracting : MonoBehaviour
 {
@@ -16,16 +17,36 @@ public class PointingAndInteracting : MonoBehaviour
 
     //Debug
     Renderer renderer;
+    LineRenderer lnRd;
+
+    public Text dbgHand;
+     public Text dbgCam;
+
+    public Transform  HAND;
+    public Transform CAM;
 
     void Start() 
     {
         StartCoroutine(HitCheck());
         renderer = gameObject.GetComponent<Renderer>();
+        lnRd= gameObject.GetComponent<LineRenderer>();
     }
 
     void Update()
     {       
        PointObjects();
+       //dbgCam.text = "Cam // x : " + CAM.transform.position.x +" y :" + CAM.transform.position.y + " z : " + CAM.transform.position.z;  
+       dbgHand.text = "Hand // x : " + HAND.transform.position.x +" y :" + HAND.transform.position.y + " z : " + HAND.transform.position.z;  
+       if(hit.collider != null)
+       {
+        lnRd.enabled = true;
+        lnRd.SetPosition(0,transform.position);
+        lnRd.SetPosition(1,hit.point);
+       }
+       else
+       {
+           lnRd.enabled =  false;
+       }
      //  print(pointingAtInteractible.objectName);
     }
 
